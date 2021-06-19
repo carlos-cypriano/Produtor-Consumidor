@@ -15,4 +15,21 @@ public class Buffer{
         this.buffer_vazio = vazio;
         this.mutex = mutex;
     }
+
+    //Método responsável por verificar se está tudo ok para a liberação da tarefa de inserção de item 
+    public void insert_item(String idThread, int item){
+        buffer_vazio.Pertmitir();
+        mutex.Permitir();
+
+        this.buffer[bufferIndexAtualProdutor] = item;
+        System.out.println("Produtor " + idThread + "\t produziu \t" + item);
+        bufferIndexAtualProdutor = (bufferIndexAtualProdutor + 1)%buffer.length;    //Módulo % percorre o cumprimento do buffer e depois retorna ao início repetindo o processo
+    
+        mutex.Liberar();
+        buffer_cheio.Liberar();
+    }
+
+    public class Item{
+        public int item;
+    }
 }
