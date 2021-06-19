@@ -18,7 +18,7 @@ public class Buffer{
 
     //Método responsável por verificar se está tudo ok para a liberação da tarefa de inserção de item 
     public void insert_item(String idThread, int item){
-        buffer_vazio.Pertmitir();
+        buffer_vazio.Permitir();
         mutex.Permitir();
 
         this.buffer[bufferIndexAtualProdutor] = item;
