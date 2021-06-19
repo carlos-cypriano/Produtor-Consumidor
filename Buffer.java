@@ -28,6 +28,21 @@ public class Buffer{
         mutex.Liberar();
         buffer_cheio.Liberar();
     }
+    //Método responsável por verificar se está tudo ok para a liberação da tarefa de remoção do item
+    public int remove_item(String idThread, int item){
+
+        buffer_cheio.Permitir();
+        mutex.Permitir();
+
+        System.out.println("Consumidor " + idThread + "\t consumiu \t" + this.buffer[bufferIndexAtualConsumidor]);
+        item = this.buffer[bufferIndexAtualConsumidor];
+        bufferIndexAtualConsumidor = (bufferIndexAtualConsumidor + 1)%buffer.length; //Módulo % percorre o cumprimento do buffer e depois retorna ao início repetindo o processo
+
+        mutex.Liberar();
+        buffer_vazio.Leberar();
+
+        return item;
+    }
 
     public class Item{
         public int item;
