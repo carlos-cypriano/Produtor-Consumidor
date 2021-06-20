@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;  //Para caso eu fosse usar a biblioteca S
 public class Buffer{
 
     public static int NUM_ITENS = 5;
-    private int[] buffer = new int[NUM_ITENS];
+    public int[] buffer = new int[NUM_ITENS];
     private int bufferIndexAtualProdutor;
     private int bufferIndexAtualConsumidor;
 
