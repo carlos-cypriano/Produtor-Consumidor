@@ -39,7 +39,7 @@ public class Buffer{
         bufferIndexAtualConsumidor = (bufferIndexAtualConsumidor + 1)%buffer.length; //Módulo % percorre o cumprimento do buffer e depois retorna ao início repetindo o processo
 
         mutex.Liberar();
-        buffer_vazio.Leberar();
+        buffer_vazio.Liberar();
 
         return item;
     }
