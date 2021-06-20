@@ -9,11 +9,12 @@ public class Buffer{
 
     private Semaforo mutex, buffer_cheio, buffer_vazio; //referenciar classe semaforo e passar variáveis para o construtor Buffer;
 
-    Buffer(int[] buffer, Semaforo cheio, Semaforo vazio, Semaforo mutex){
+    Buffer(int[] buffer, Semaforo mutex, Semaforo cheio, Semaforo vazio){
         this.buffer = buffer;
+        this.mutex = mutex;
         this.buffer_cheio = cheio;
         this.buffer_vazio = vazio;
-        this.mutex = mutex;
+        
     }
 
     //Método responsável por verificar se está tudo ok para a liberação da tarefa de inserção de item 
@@ -28,6 +29,7 @@ public class Buffer{
         mutex.Liberar();
         buffer_cheio.Liberar();
     }
+
     //Método responsável por verificar se está tudo ok para a liberação da tarefa de remoção do item
     public int remove_item(String idThread, int item){
 

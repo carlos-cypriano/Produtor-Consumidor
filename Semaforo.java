@@ -12,14 +12,14 @@ public class Semaforo {
     Responsável por permitir o acesso de apenas uma thread na area crítica através de um contador
     número de permissões pode ser alterado se usado apenas Semaforo*/
     public synchronized void Permitir(){
-        if(contador <= 0){
+        if(contador <= 0)
             try {
                 wait(); //Bloco de teste, que coloca a thread em espera até que seja liberada para prosseguir 
             } catch (InterruptedException e) {
-                
             }
-        }
         contador--;
+        
+        
     }
 
     /*Método equivalente a propriedade Release que no inglês significa lançamento

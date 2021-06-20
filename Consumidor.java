@@ -3,7 +3,7 @@ import java.util.Random;
 public class Consumidor extends Thread {
     Buffer buffe;   //Utilizando para chamada da função remove_item
 
-    public Consumidor(Buffer buffer){
+    Consumidor(Buffer buffer){
         this.buffe = buffer;
     }
 
